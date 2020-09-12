@@ -1,0 +1,129 @@
+﻿@model AboutVm
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Banner Area Start -->
+    <partial name="_partialBanner" />
+<!-- Banner Area End -->
+<!-- About Start -->
+<div class="about-area pt-145 pb-155">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="about-content">
+                   @Html.Raw(Model.WelcomeAbout.Title)
+                   
+                    <p class="hidden-sm">@Model.WelcomeAbout.Description</p>
+                    <a class="default-btn" href="#">view courses</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="about-img">
+                    <img src="~/img/about/@Model.WelcomeAbout.Image" alt="about">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Teacher Start -->
+<div class="teacher-area pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title text-center">
+                    <img src="~/img/icon/section.png" alt="title">
+                    <h2>meet our teachers</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @await Component.InvokeAsync("Teacher", 4)
+        </div>
+    </div>
+</div>
+<!-- Teacher End -->
+<!-- Testimonial Area Start -->
+<div class="testimonial-area pt-110 pb-105 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="testimonial-owl owl-theme owl-carousel">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
+                    <div class="single-testimonial">
+                        <div class="testimonial-info">
+                            <div class="testimonial-img">
+                                <img src="~/img/testimonial/@Model.Testimonial.Image" alt="testimonial">
+                            </div>
+                            <div class="testimonial-content">
+                                <p> @Model.Testimonial.Title</p>
+                                <h4>@Model.Testimonial.Name</h4>
+                                <h5>@Model.Testimonial.Position</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial Area End -->
+<!-- Notice Start -->
+<section class="notice-area two pt-140 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-right-wrapper mb-25 pb-25">
+                    <h3>@Model.VideoTour.Title</h3>
+                    <div class="notice-video">
+                        <div class="video-icon video-hover">
+                            <a class="video-popup" href="@Model.VideoTour.VideoLink">
+                                <i class="zmdi zmdi-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-left-wrapper">
+                    <h3>notice board</h3>
+                    <div class="notice-left">
+                        @foreach (var notice in Model.NoticeBoards)
+                        {
+                        <div class="single-notice-left mb-23 pb-20">
+                            <h4>@notice.Date.ToString("dddd, dd MMMM yyyy")</h4>
+                            <p>@notice.Description</p>
+                        </div>
+
+                        }
+                        @*<div class="single-notice-left hidden-sm mb-23 pb-20">
+            <h4>4, June 2017</h4>
+            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+        </div>
+        <div class="single-notice-left pb-70">
+            <h4>3, June 2017</h4>
+            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+        </div>
+        <div class="single-notice-left mb-23 pb-20">
+            <h4>5, June 2017</h4>
+            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+        </div>
+        <div class="single-notice-left hidden-sm mb-23 pb-20">
+            <h4>4, June 2017</h4>
+            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+        </div>
+        <div class="single-notice-left pb-70">
+            <h4>3, June 2017</h4>
+            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Notice End -->
+<!-- Subscribe Start -->
+<partial name="_partialSubscribe" />
+<!-- Subscribe End -->

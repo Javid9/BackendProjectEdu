@@ -1,0 +1,213 @@
+﻿@model HomeVm
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+   
+
+}
+
+<!-- Background Area Start -->
+<section id="slider-container" class="slider-area">
+    <div class="slider-owl owl-theme owl-carousel">
+        <!-- Start Slingle Slide -->
+        @foreach (Slider slider in Model.Sliders)
+        {
+            <div class="single-slide item" style="background-image: url(/img/slider/@slider.Image)">
+                <!-- Start Slider Content -->
+                <div class="slider-content-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-md-offset-left-5">
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-content">
+                                        @Html.Raw(slider.Title)
+                                        <p>@slider.Description</p>
+                                        <a class="default-btn" href="about.html">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start Slider Content -->
+            </div>
+        }
+
+        <!-- End Slingle Slide -->
+
+    </div>
+</section>
+<!-- Background Area End -->
+<!-- Notice Start -->
+<section class="notice-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-left">
+                    <h3>notice board</h3>
+                    @foreach (var notice in Model.NoticeBoards)
+                    {
+                        <div class="single-notice-left mb-25 pb-25">
+                            <h4>@notice.Date.ToString("dddd, dd MMMM yyyy")</h4>
+                            <p>@notice.Description</p>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-right">
+                    @foreach (var noticeRight in Model.NoticeRightInfos)
+                    {
+                        <div class="single-notice-right mb-25 pb-25">
+                            <h3>@noticeRight.Title</h3>
+                            <p>@noticeRight.Description</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Notice End -->
+<!-- Choose Start -->
+<section class="choose-area pb-85 pt-77">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-left-4 col-sm-8 col-md-offset-left-4">
+                <div class="choose-content text-left">
+                    <h2>@Model.WhyUs.Question</h2>
+                  @Html.Raw(Model.WhyUs.Answer)
+                    <a class="default-btn" href="course-details.html">view courses</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Choose Area End -->
+<!-- Courses Area Start -->
+<div class="courses-area pt-150 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="~/img/icon/section.png" alt="section-title">
+                    <h2>COURSES WE OFFER</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @await Component.InvokeAsync("Course",3)
+
+
+        </div>
+    </div>
+</div>
+<!-- Courses Area End -->
+<!-- Event Area Start -->
+<div class="event-area one text-center pt-140 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="~/img/icon/section.png" alt="section-title">
+                    <h2>UPCOMMING EVENTS</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="single-event mb-35">
+                    @foreach (var item in Model.UpComingEvents.Take(4))
+                    {
+                        <div class="event-date">
+                            <h3><a href="event-details.html"> @item.Day.ToString("dd") <span>@item.Month.ToString("MMMM")</span></a></h3>
+                        </div>
+                        <div class="event-content text-left">
+                            <div class="event-content-left">
+                                <h4><a href="event-details.html">@item.Title</a></h4>
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>@item.StartTime.ToString("hh:mm tt") -@item.EndTime.ToString("hh:mm tt")</li>
+                                    <li><i class="fa fa-map-marker"></i>@item.Location</li>
+                                </ul>
+                            </div>
+                            <div class="event-content-right">
+                                <a class="default-btn" href="event-details.html">join now</a>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+               
+            </div>
+            <div class="col-md-6 hidden-sm hidden-xs">
+                <div class="single-event mb-35 ">
+                    @foreach (var item in Model.UpComingEvents.Skip(4).Take(4))
+                    {
+                        <div class="event-date ">
+                            <h3><a href="event-details.html"> @item.Day.ToString("dd")<span>@item.Month.ToString("MMMM")</span></a></h3>
+                        </div>
+                        <div class="event-content text-left">
+                            <div class="event-content-left">
+                                <h4><a href="event-details.html">@item.Title</a></h4>
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>@item.StartTime.ToString("hh:mm tt") -@item.EndTime.ToString("hh:mm tt")</li>
+                                    <li><i class="fa fa-map-marker"></i>@item.Location</li>
+                                </ul>
+                            </div>
+                            <div class="event-content-right">
+                                <a class="default-btn" href="event-details.html">join now</a>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Event Area End -->
+<!-- Testimonial Area Start -->
+<div class="testimonial-area pt-110 pb-105 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="testimonial-owl owl-theme owl-carousel">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
+                    <div class="single-testimonial">
+                        <div class="testimonial-info">
+                            <div class="testimonial-img">
+                                <img src="~/img/testimonial/@Model.Testimonial.Image" alt="testimonial">
+                            </div>
+                            <div class="testimonial-content">
+                                <p> @Model.Testimonial.Title</p>
+                                <h4>@Model.Testimonial.Name</h4>
+                                <h5>@Model.Testimonial.Position</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial Area End -->
+<!-- Blog Area Start -->
+<div class="blog-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title text-center">
+                    <img src="~/img/icon/section.png" alt="section-title">
+                    <h2>LATEST FROM BLOG</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @await Component.InvokeAsync("Blog",3)
+
+        </div>
+    </div>
+</div>
+<!-- Blog Area End -->
+<!-- Subscribe Start -->
+<partial name="_partialSubscribe" />
+<!-- Subscribe End -->

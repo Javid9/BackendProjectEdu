@@ -1,0 +1,65 @@
+﻿@model RegisterVm
+@{
+    ViewData["Title"] = "Register";
+}
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>sign up</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Register start -->
+<div class="register-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>sign up</h2>
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        </div>
+                        <div class="login-form">
+                            <form method="post">
+                                <input asp-for="Fullname" placeholder="Fullname">
+                                <span class="text-danger" asp-validation-for="Fullname"></span>
+                                <input asp-for="Username" placeholder="Username">
+                                <span v asp-validation-for="Username"></span>
+                                <input asp-for="Email" placeholder="Email">
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                                <input asp-for="Password" placeholder="Password">
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                                <input asp-for="CheckPassword" placeholder="Checkpassword">
+                                <span class="text-danger" asp-validation-for="CheckPassword"></span>
+
+                                <div class="button-box">
+
+                                    <button type="submit" class="default-btn">sign up</button>
+                                    <a asp-controller="account" asp-action="Login" type="submit" class="default-btn " style="background:green;color:white;margin-left:50px">Go To Login</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register end -->
+<!-- Subscribe Start -->
+<partial name="_partialSubscribe" />
+<!-- Subscribe End -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>

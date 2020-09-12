@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Teacher>
+@{
+    Layout = null;
+}
+
+@foreach (Teacher item in Model)
+{
+    <li>
+        <a href="">@item.FullName</a>
+    </li>
+}

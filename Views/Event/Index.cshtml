@@ -1,0 +1,51 @@
+﻿@model List<UpComingEvent>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Banner Area Start -->
+    <partial name="_partialBanner" />
+<!-- Banner Area End -->
+<!-- Event Start -->
+<div class="event-area three text-center pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.Take(9))
+            {
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-event mb-60">
+                        <div class="event-img">
+                            <a href="event-details.html">
+                                <img src="~/img/event/@item.Image" alt="event">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                            <div class="event-date">
+                                <h3>@item.Day.ToString("dd") <span>@item.Month.ToString("MMMM")</span></h3>
+                            </div>
+                        </div>
+                        <div class="event-content text-left">
+                            <h4><a href="event-details.html">@item.Title</a></h4>
+                            <ul>
+                                <li><span>time:</span> @item.StartTime.ToString("hh:mm tt") - @item.EndTime.ToString("hh:mm tt")</li>
+                                <li><span>venue</span> @item.Location</li>
+                            </ul>
+                            <div class="event-content-right">
+                                <a class="default-btn" href="event-details.html">join now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</div>
+<!-- Event End -->
+<!-- Subscribe Start -->
+<partial name="_partialSubscribe" />
+<!-- Subscribe End -->
