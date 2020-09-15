@@ -1,0 +1,41 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+
+<div class="row mt-3">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title">Update Contact</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <img src="~/img/contact/@Model.Image" width="100" height="100" />
+                    </div>
+                      <div class="form-group">
+                            <label asp-for="Photo"></label>
+                            <input asp-for="Photo" class="form-control" accept="image/*" placeholder="Name">
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+
+                            <label asp-for="TitleHeader"></label>
+                            <input asp-for="TitleHeader" class="form-control" placeholder="descroption">
+                            <span asp-validation-for="TitleHeader" class="text-danger"></span>
+                            <label asp-for="Info"></label>
+                            <input asp-for="Info" class="form-control" placeholder="title">
+                            <span asp-validation-for="Info" class="text-danger"></span>
+                        </div>
+                    
+                    <button type="submit" class="btn btn-warning mr-2">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_Validation" />
+}
+

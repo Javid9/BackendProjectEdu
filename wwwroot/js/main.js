@@ -134,7 +134,7 @@ $(".notice-left").niceScroll({
 $(document).ready(function () {
 
     let search = $(this).val().trim();
-    let hidden = $("#hidden").val();
+    let hidden = $("#hidden").val().trim();
 
     $(document).on("click", ".click-to-search", function () {
         let search = $(".input-search").val().trim();

@@ -1,4 +1,4 @@
-﻿
+﻿@model UpComingEvent
 @{
     ViewData["Title"] = "Detail";
 }
@@ -27,20 +27,19 @@
             <div class="col-md-8">
                 <div class="event-details">
                     <div class="event-details-img">
-                        <img src="~/img/event/event-details.jpg" alt="event-details">
+                        <img style="width:700px; height:300px;" src="~/img/event/@Model.Image" alt="event-details">
                         <div class="event-date">
                             <h3>20 <span>jun</span></h3>
                         </div>
                     </div>
                     <div class="event-details-content">
-                        <h2>ADVANCE WED DEVELOPMENT WORKSHOP</h2>
+                        <h2>@Model.Title</h2>
                         <ul>
-                            <li><span>time : </span>9:30am - 4:45pm</li>
-                            <li><span>venue : </span>Cristal Centre, 254 New Yourk</li>
+                            <li><span>time : </span>@Model.StartTime.ToString("hh:mm tt") -@Model.EndTime.ToString("hh:mm tt")</li>
+                            <li><span>venue : </span>@Model.Location</li>
                         </ul>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui </p>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem </p>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                      <p>@Model.Description</p>
+                      
                         <div class="speakers-area fix">
                             <h4>speakers</h4>
                             <div class="single-speaker">

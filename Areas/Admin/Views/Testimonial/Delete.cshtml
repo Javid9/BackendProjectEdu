@@ -1,0 +1,19 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row">
+    <img src="~/img/testimonial/@Model.Image" width="400" height="200" />
+</div>
+<div class="row">
+    <p class="col-12">@Model.Name</p>
+    <p class="col-12">@Model.Title</p>
+    <p class="col-12">@Model.Position</p>
+</div>
+<div class="row mt-3">
+    <a class="btn btn-dark" asp-action="Index">Go Back</a>
+    <form method="post">
+        <button type="submit" class="btn btn-danger ml-2">Delete</button>
+    </form>
+</div>

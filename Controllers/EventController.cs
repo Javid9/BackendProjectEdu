@@ -21,9 +21,10 @@ namespace EducationBackendFinal.Controllers
 
             return View(events);
         }
-        public IActionResult Detail()
+        public IActionResult Detail(int? id)
         {
-            return View();
+            UpComingEvent upComingEvent = _db.UpComingEvents.Find(id);
+            return View(upComingEvent);
         }
     }
 }

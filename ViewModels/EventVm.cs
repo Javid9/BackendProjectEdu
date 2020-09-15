@@ -1,11 +1,12 @@
-﻿using System;
+﻿using EducationBackendFinal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EducationBackendFinal.Models
+namespace EducationBackendFinal.ViewModels
 {
-    public class Event
+    public class EventVm
     {
         public int Id { get; set; }
         public DateTime Month { get; set; }
@@ -15,5 +16,7 @@ namespace EducationBackendFinal.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public string Image { get; set; }
+        public string Description { get; set; }
+        public ICollection<SpeakerEvent> SpeakerEvents { get; set; }
     }
 }

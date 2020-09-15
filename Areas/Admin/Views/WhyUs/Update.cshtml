@@ -1,0 +1,36 @@
+﻿@model WhyUs
+<div class="row mt-3">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title">Update Slider</h4>
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label asp-for="Question"></label>
+                        <input asp-for="Question" class="form-control" placeholder="descroption">
+                        <span asp-validation-for="Question" class="text-danger"></span>
+                        <label asp-for="Answer"></label>
+                        <input asp-for="Answer" class="form-control" placeholder="title">
+                        <span asp-validation-for="Answer" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-warning mr-2">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_Validation" />
+    @*<script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Answer'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>*@
+}
+

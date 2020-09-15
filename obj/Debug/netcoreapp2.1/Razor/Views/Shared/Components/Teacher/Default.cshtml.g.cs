@@ -69,7 +69,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("    <div class=\"col-md-3 col-sm-4 col-xs-12\" style=\"margin-top:50px\">\r\n        <div class=\"single-teacher\">\r\n            <div class=\"single-teacher-img\">\r\n                <a href=\"teacher-details.html\">");
             EndContext();
             BeginContext(354, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cdb38ca2b9ae4872ad0831f07e6c8b40", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a100609bf6d41948a2990b48131aef4", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

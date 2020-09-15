@@ -199,6 +199,42 @@ namespace EducationBackendFinal.Migrations
                     b.ToTable("Sliders");
                 });
 
+            modelBuilder.Entity("EducationBackendFinal.Models.Speaker", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Image");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Position");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Speakers");
+                });
+
+            modelBuilder.Entity("EducationBackendFinal.Models.SpeakerEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("SpeakerId");
+
+                    b.Property<int>("UpComingEventId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SpeakerId");
+
+                    b.HasIndex("UpComingEventId");
+
+                    b.ToTable("SpeakerEvents");
+                });
+
             modelBuilder.Entity("EducationBackendFinal.Models.Teacher", b =>
                 {
                     b.Property<int>("Id")
@@ -232,11 +268,14 @@ namespace EducationBackendFinal.Migrations
 
                     b.Property<string>("Image");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<string>("Position");
+                    b.Property<string>("Position")
+                        .IsRequired();
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -250,6 +289,8 @@ namespace EducationBackendFinal.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Day");
+
+                    b.Property<string>("Description");
 
                     b.Property<DateTime>("EndTime");
 
@@ -423,6 +464,19 @@ namespace EducationBackendFinal.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("EducationBackendFinal.Models.SpeakerEvent", b =>
+                {
+                    b.HasOne("EducationBackendFinal.Models.Speaker", "Speaker")
+                        .WithMany("SpeakerEvents")
+                        .HasForeignKey("SpeakerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EducationBackendFinal.Models.UpComingEvent", "UpComingEvent")
+                        .WithMany("SpeakerEvents")
+                        .HasForeignKey("UpComingEventId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

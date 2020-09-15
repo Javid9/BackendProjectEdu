@@ -15,8 +15,8 @@ namespace EducationBackendFinal.Controllers
         public CoursesController(AppDbContext db)
         {
             _db = db;
-
         }
+
         public IActionResult Index()
         {
             return View();

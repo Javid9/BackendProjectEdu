@@ -19,11 +19,14 @@ namespace EducationBackendFinal.Controllers
         }
         public IActionResult Search(string search,string hidden)
         {
-            IEnumerable<BaseEntity> list = new List<Teacher>();
+            IEnumerable<BaseEntity> list = new List<BaseEntity>();
             switch (hidden)
             {
                 case "teacher":
                   list =  _db.Teachers.Where(x => x.FullName.ToLower().Contains(search.ToLower()));
+                    break;
+                case "blog":
+                    list = _db.Blogs.Where(x => x.Author.ToLower().Contains(search.ToLower()));
                     break;
                 case "course":
                     list = _db.Courses.Where(x => x.Title.ToLower().Contains(search.ToLower()));

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EducationBackendFinal.Models
 {
-    public class Blog
+    public class Blog:BaseEntity
     {
         public int Id { get; set; }
         public string Image { get; set; }

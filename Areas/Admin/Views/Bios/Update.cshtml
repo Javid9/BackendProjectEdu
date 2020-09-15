@@ -1,0 +1,49 @@
+﻿
+@model Bio
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    
+    <img src="~/img/logo/@Model.Logo" width="400" height="200" />
+</div>
+<div class="row mt-3">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title">Update Slider</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Photo"></label>
+                        <input asp-for="Photo" class="form-control" accept="image/*" placeholder="Name">
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                        <label asp-for="Number"></label>
+                        <input asp-for="Number" class="form-control" placeholder="descroption">
+                        <span asp-validation-for="Number" class="text-danger"></span>
+                        <label asp-for="Facebook"></label>
+                        <input asp-for="Facebook" class="form-control" placeholder="title">
+                        <span asp-validation-for="Facebook" class="text-danger"></span>
+                        <label asp-for="Vcontact"></label>
+                        <input asp-for="Vcontact" class="form-control" placeholder="title">
+                        <span asp-validation-for="Vcontact" class="text-danger"></span>
+                        <label asp-for="Twitter"></label>
+                        <input asp-for="Twitter" class="form-control" placeholder="title">
+                        <span asp-validation-for="Twitter" class="text-danger"></span>
+                        <label asp-for="Pinterest"></label>
+                        <input asp-for="Pinterest" class="form-control" placeholder="title">
+                        <span asp-validation-for="Pinterest" class="text-danger"></span>
+
+                    </div>
+                    <button type="submit" class="btn btn-warning mr-2">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_Validation" />
+}
+
