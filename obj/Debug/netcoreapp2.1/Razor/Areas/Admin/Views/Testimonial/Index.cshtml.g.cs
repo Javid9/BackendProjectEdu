@@ -67,7 +67,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("\r\n<div class=\"row\">\r\n    <div class=\"col-lg-12 grid-margin stretch-card\">\r\n        <div class=\"card\">\r\n            <div class=\"card-body\">\r\n                <h4 class=\"card-title\">Testimonial Table</h4>\r\n                ");
             EndContext();
             BeginContext(286, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c3237974561407dac80ce1f8fd0ea9f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "036c39dd7bba4421b7169f6f71d9596f", async() => {
                 BeginContext(333, 46, true);
                 WriteLiteral("\r\n                    Create\r\n                ");
                 EndContext();
@@ -123,7 +123,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("                                <tr>\r\n                                    <td>\r\n                                        ");
             EndContext();
             BeginContext(1480, 75, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "335cfe802b8945dbaf14a23bc51a0ce5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4a6dd1f6703d4eea972f8e0d00006224", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -179,7 +179,7 @@ AddHtmlAttributeValue("", 1508, item.Image, 1508, 11, false);
             WriteLiteral("</td>\r\n\r\n\r\n                                    <td>\r\n                                        ");
             EndContext();
             BeginContext(1862, 197, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e35ce3e27a814c52ae060e963f627b63", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d9275f5d68a48059fb9e3c33287f192", async() => {
                 BeginContext(1933, 122, true);
                 WriteLiteral("\r\n                                            <i class=\"mdi mdi-table-edit\"></i>\r\n                                        ");
                 EndContext();
@@ -215,7 +215,7 @@ AddHtmlAttributeValue("", 1508, item.Image, 1508, 11, false);
             WriteLiteral("\r\n                                        ");
             EndContext();
             BeginContext(2101, 198, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bcddf54767bd456e8d7abd1b770f161e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "993cb669e3974d2da13c266410fe6c74", async() => {
                 BeginContext(2171, 124, true);
                 WriteLiteral("\r\n                                            <i class=\"mdi mdi-table-remove\"></i>\r\n                                        ");
                 EndContext();

@@ -27,8 +27,10 @@ namespace EducationBackendFinal.DAL
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<VideoTour> VideoTours { get; set; }
         public DbSet<Contact> Contacts { get; set; }
-      
         public DbSet<Speaker> Speakers  { get; set; }
         public DbSet<SpeakerEvent> SpeakerEvents { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<CourseUser> CourseUsers { get; set; }
+        public DbSet<TeacherUser> TeacherUsers { get; set; }
     }
 }

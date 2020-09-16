@@ -1,0 +1,80 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Course</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Photo"></label>
+                        <input asp-for="Photo" class="form-control" accept="image/*">
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title"></label>
+                        <input asp-for="Title" class="form-control" placeholder="Title">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" placeholder="Description">
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StartTime"></label>
+                        <input asp-for="StartTime" class="form-control" placeholder="StartTime">
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ClassDuration"></label>
+                        <input asp-for="ClassDuration" class="form-control" placeholder="ClassDuration">
+                        <span asp-validation-for="ClassDuration" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Duration"></label>
+                        <input asp-for="Duration" class="form-control" placeholder="Duration">
+                        <span asp-validation-for="Duration" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SkilLevel"></label>
+                        <input asp-for="SkilLevel" class="form-control" placeholder="SkillLevel">
+                        <span asp-validation-for="SkilLevel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Language"></label>
+                        <input asp-for="Language" class="form-control" placeholder="Language">
+                        <span asp-validation-for="Language" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StudentsCount"></label>
+                        <input asp-for="StudentsCount" class="form-control" placeholder="StudentsCount">
+                        <span asp-validation-for="StudentsCount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Assesments"></label>
+                        <input asp-for="Assesments" class="form-control" placeholder="Assesments">
+                        <span asp-validation-for="Assesments" class="text-danger"></span>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-success mr-2 create-book">create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_Validation" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
+
+}
+
+

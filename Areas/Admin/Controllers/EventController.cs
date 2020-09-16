@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using EducationBackendFinal.DAL;
 using EducationBackendFinal.Extentions;
+using EducationBackendFinal.Helpers;
 using EducationBackendFinal.Models;
 using EducationBackendFinal.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace EducationBackendFinal.Areas.Admin.Controllers
@@ -19,28 +22,30 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
 
         private readonly AppDbContext _db;
         private readonly IHostingEnvironment _env;
-        public EventController(AppDbContext db, IHostingEnvironment env)
+        private readonly IMapper _mapper;
+        public EventController(AppDbContext db, IHostingEnvironment env, IMapper mapper)
         {
             _db = db;
             _env = env;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
             
            
-            return View(_db.UpComingEvents.Include(e=>e.SpeakerEvents).ThenInclude(c=>c.Speaker).ToList());
+            return View(_db.UpComingEvents.Include(c=>c.Category).Include(e=>e.SpeakerEvents).ThenInclude(c=>c.Speaker).ToList());
             
            
 
             //List<UpComingEvent> events = _db.UpComingEvents.Include(e => e.SpeakerEvents);
-
 
             
         }
         public IActionResult Create()
         {
             ViewBag.Speaker = _db.Speakers.ToList();
+            ViewBag.Category = new SelectList( _db.Categories.ToList(), "Id", "Name" );
             return View();
         }
         [HttpPost]
@@ -60,6 +65,11 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
                 ModelState.AddModelError("Photo", "Shekilin olchusu max 200kb ola biler");
                 return BadRequest(ModelState);
             }
+            if (upComingEventCreateVM.SpeakerEventsId==null)
+            {
+                ModelState.AddModelError("", "Speaker Secmelisiniz!");
+                return BadRequest(ModelState);
+            }
             string path = Path.Combine("img", "event");
             UpComingEvent upComingEvent = new UpComingEvent
             {
@@ -70,7 +80,8 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
                 Location = upComingEventCreateVM.Location,
                 StartTime = upComingEventCreateVM.StartTime,
                 EndTime = upComingEventCreateVM.EndTime,
-                Description = upComingEventCreateVM.Description
+                Description = upComingEventCreateVM.Description,
+                CategoryId = upComingEventCreateVM.CategoryId
             };
 
            
@@ -103,6 +114,101 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
             return Ok($"{upComingEvent.Id} li element yaradildi");
 
 
+        }
+        public IActionResult Detail(int? id)
+        {
+            if (id == null) return View();
+            UpComingEvent upComingEvent = _db.UpComingEvents.Include(c => c.SpeakerEvents).ThenInclude(c => c.Speaker).FirstOrDefault(p=>p.Id==id);
+
+            return View(upComingEvent);
+        }
+
+        public IActionResult Update(int? id)
+        {
+            ViewBag.Category = new SelectList(_db.Categories.ToList(), "Id", "Name");
+            ViewBag.Speaker = _db.Speakers.ToList();
+            if (id == null) return View();
+            UpComingEvent upComingEvent = _db.UpComingEvents.Include(c => c.SpeakerEvents).ThenInclude(c => c.Speaker).FirstOrDefault(p => p.Id == id);
+           // var vm = _mapper.Map<UpComingEvent,UpComingGetVm>(upComingEvent);
+            return View(upComingEvent);
+        }
+
+        [HttpPost]
+       
+
+        public async Task<IActionResult> Update([FromForm]UpComingEventEditVM  upComingEventEdit)
+        {
+            
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            var upComing = await _db.UpComingEvents.FirstOrDefaultAsync(x => x.Id == upComingEventEdit.Id);
+            if (upComing == null) return NotFound();
+            upComing.Location = upComingEventEdit.Location;
+            upComing.Title = upComingEventEdit.Title;
+            upComing.StartTime = upComingEventEdit.StartTime;
+            upComing.Month = upComingEventEdit.Month;
+            upComing.EndTime = upComingEventEdit.EndTime;
+            upComing.Description = upComingEventEdit.Description;
+            upComing.Day = upComingEventEdit.Day;
+            upComing.CategoryId= upComingEventEdit.CategoryId;
+            if (upComingEventEdit.Photo != null) 
+            {
+                Helper.DeleteImage(_env.WebRootPath, "img/event", upComing.Image);
+                upComing.Image = await upComingEventEdit.Photo.SaveImg(_env.WebRootPath, "img/event");
+
+            }
+            if (upComingEventEdit.SpeakersId == null)
+            {
+                ModelState.AddModelError("", "Speaker Secmelisiniz!");
+                return BadRequest(ModelState);
+            }
+
+            var speakerEvent =  _db.SpeakerEvents.Where(x => x.UpComingEventId == upComing.Id);
+
+              
+                foreach (var item in speakerEvent)
+                {
+                    upComing.SpeakerEvents.Remove(item);
+                }
+                await _db.SaveChangesAsync();
+            
+            
+                upComing.SpeakerEvents = upComingEventEdit.SpeakersId
+               .Select(x => new SpeakerEvent { SpeakerId = x }).ToList();
+
+            
+            
+
+            await _db.SaveChangesAsync();
+            await Task.Delay(1000);
+
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult Delete(int?id )
+        {
+            ViewBag.Speaker = _db.Speakers.ToList();
+            if (id == null) return View();
+            UpComingEvent upComingEvent = _db.UpComingEvents.Include(c => c.SpeakerEvents).ThenInclude(c => c.Speaker).FirstOrDefault(p => p.Id == id);
+            if (upComingEvent == null) return View();
+            return View(upComingEvent);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public IActionResult DeleteEvent(int? id)
+        {
+            ViewBag.Speaker = _db.Speakers.ToList();
+            if (id == null) return View();
+            UpComingEvent upComingEvent = _db.UpComingEvents.Include(c => c.SpeakerEvents).ThenInclude(c => c.Speaker).FirstOrDefault(p => p.Id == id);
+            if (upComingEvent == null) return View();
+            _db.UpComingEvents.Remove(upComingEvent);
+           
+            foreach (var item in upComingEvent.SpeakerEvents)
+            {
+                _db.SpeakerEvents.Remove(item);
+
+            }
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

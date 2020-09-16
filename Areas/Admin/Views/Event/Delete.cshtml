@@ -1,0 +1,92 @@
+﻿@model UpComingEvent
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row">
+    <img src="~/img/event/@Model.Image" width="400" height="200" />
+
+</div>
+<div class="row mt-5">
+    <div class="col-2">
+        <h6>Title</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.Title</p>
+    </div>
+
+
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>Month</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.Month</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>Day</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.Day</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>StartTime</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.StartTime</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <h6>EndTime</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.EndTime</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>EndTime</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.EndTime</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>Description</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.Description</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>Speaker</h6>
+    </div>
+    <div class="col-4">
+        <ul>
+            @foreach (var item in Model.SpeakerEvents)
+            {
+
+                <li style="list-style:none">@item.Speaker.Name</li>
+
+            }
+        </ul>
+    </div>
+
+</div>
+
+<div class="row mt-3">
+    <a class="btn btn-dark mr-3" asp-action="Index">Go Back</a>
+    <form  method="post">
+        <input type="submit"  value="Delete" class="btn btn-danger" />
+    </form>
+</div>
+
+

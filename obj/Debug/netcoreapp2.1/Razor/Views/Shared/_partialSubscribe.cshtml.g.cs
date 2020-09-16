@@ -79,7 +79,7 @@ using EducationBackendFinal.ViewModels;
                         ");
             EndContext();
             BeginContext(536, 1004, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "051665c12b224f97b5a47d8b0c359be7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0d444b2c16247a699768f31486b76ce", async() => {
                 BeginContext(773, 760, true);
                 WriteLiteral(@"
                             <div id=""mc_embed_signup_scroll"" class=""mc-form"">

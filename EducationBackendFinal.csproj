@@ -7,9 +7,24 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200914065956_relationCreatedSpeakerEventTable.cs" />
     <Compile Remove="Migrations\20200914065956_relationCreatedSpeakerEventTable.Designer.cs" />
+    <Compile Remove="Migrations\20200915175538_CreateCategoryTable.cs" />
+    <Compile Remove="Migrations\20200915175538_CreateCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20200916065316_createcategorytable.cs" />
+    <Compile Remove="Migrations\20200916065316_createcategorytable.Designer.cs" />
+    <Compile Remove="Migrations\20200916072118_createCategoryID.cs" />
+    <Compile Remove="Migrations\20200916072118_createCategoryID.Designer.cs" />
+    <Compile Remove="Migrations\20200916072416_createCategory.cs" />
+    <Compile Remove="Migrations\20200916072416_createCategory.Designer.cs" />
+    <Compile Remove="Migrations\20200916103940_AddCourseUserTable.cs" />
+    <Compile Remove="Migrations\20200916103940_AddCourseUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20200916105303_AddCourseUserTable.cs" />
+    <Compile Remove="Migrations\20200916105303_AddCourseUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20200916180359_addrealtionteachercategory.cs" />
+    <Compile Remove="Migrations\20200916180359_addrealtionteachercategory.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />

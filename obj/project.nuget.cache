@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "kUmVHipg2w5/bQ8CUV/GUynxipyEc3L8pbSvqI5szWEzn62Hepu+S2fjyNZ/tdAh+AXbdsZ91/70GrBjK2l5Ag==",
+  "dgSpecHash": "EhmMonZ8xCdXKRuQ4Av99b8Xw/SJ61QjAl54WQ3cpKK0033msqmix7eBst+MmfSFRJtZzzC4dtHGH9zXgx3kWw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cavid\\Desktop\\backendProect\\EducationBackendFinal\\EducationBackendFinal.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Cavid\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\Cavid\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.antiforgery\\2.1.1\\microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",

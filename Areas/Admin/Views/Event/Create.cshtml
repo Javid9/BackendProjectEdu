@@ -7,7 +7,7 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Create Slider</h4>
+                <h4 class="card-title">Create Event</h4>
                 <form class="forms-sample">
                     <div class="form-group">
                         <label asp-for="Photo"></label>
@@ -60,6 +60,13 @@
 
                     </div>
                     <div class="form-group">
+
+                        <select   asp-for="@Model.CategoryId"
+                                asp-items="@ViewBag.Category">
+                           
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="StartTime"></label>
                         <input asp-for="StartTime" class="form-control" placeholder="startime">
                         <span asp-validation-for="StartTime" class="text-danger"></span>
@@ -97,13 +104,16 @@
             }
 
             let formData = new FormData();
+            
         
             for (let spkrId of speakerId) {
                 formData.append("SpeakerEventsId", spkrId);
             }
+           
 
             formData.append("Day",document.querySelector("#Day").value);
             formData.append("Month", $("#Month").val());
+            formData.append("CategoryId",$("#CategoryId").val())
             formData.append("Title", $("#Title").val());
             formData.append("StartTime", $("#StartTime").val());
             formData.append("EndTime", $("#EndTime").val());

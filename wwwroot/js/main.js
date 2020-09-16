@@ -133,19 +133,30 @@ $(".notice-left").niceScroll({
 
 $(document).ready(function () {
 
-    let search = $(this).val().trim();
+    //let search = $(this).val().trim();
     let hidden = $("#hidden").val().trim();
 
     $(document).on("click", ".click-to-search", function () {
         let search = $(".input-search").val().trim();
         $(".searchList li").slice(1).remove();
+        //$(".searchList").html()
         if (search.length > 0) {
             $.ajax({
                 url: "/Ajax/Search?search=" + search+"&hidden="+hidden,
                 type: "Get",
                 success: function (res) {
-                    $(".searchList").append(res);
-                    console.log(res)
+                    $(".searchList").append(`<div class="card" style="width: 18rem;" style="position:absolute">
+                          <img class="card-img-top" src="img/teacher/${res[0].image}" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title">${res[0].fullName}</h5>
+                            <p class="card-text"> ${res[0].position}</p>
+                             <a class="btn btn-dark mr-3" asp-controller="Teacher" asp-action="Detail">Go Detail</a>
+                          </div>
+                        </div>`);
+                    //console.log(res[0].image)
+                    //console.log(res[0].fullName)
+                   //console.log(res)
+                  
                 }
             })
         }

@@ -72,7 +72,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("    <div class=\"col-md-4 col-sm-6 col-xs-12\" style=\"margin-top: 50px\">\r\n        <div class=\"single-course\">\r\n            <div class=\"course-img\">\r\n                <a href=\"course-details.html\">\r\n                    ");
             EndContext();
             BeginContext(363, 51, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "2bfe0a2b0ab6474dbe5c0d6e36729efc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c03144db385a4d1190260655f6cfb14f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -125,7 +125,7 @@ AddHtmlAttributeValue("", 386, course.Image, 386, 13, false);
             WriteLiteral("</p>\r\n                ");
             EndContext();
             BeginContext(762, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18ffcf726eb342c5b0f78f23589dd079", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8efcb4a42fe64de7bdbfb1c6832183ec", async() => {
                 BeginContext(805, 9, true);
                 WriteLiteral("read more");
                 EndContext();

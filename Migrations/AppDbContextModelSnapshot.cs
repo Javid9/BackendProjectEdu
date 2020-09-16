@@ -118,6 +118,22 @@ namespace EducationBackendFinal.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("EducationBackendFinal.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("EducationBackendFinal.Models.Contact", b =>
                 {
                     b.Property<int>("Id")
@@ -141,15 +157,50 @@ namespace EducationBackendFinal.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Assesments");
+
+                    b.Property<string>("ClassDuration");
+
                     b.Property<string>("Description");
 
+                    b.Property<int>("Duration");
+
                     b.Property<string>("Image");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Language");
+
+                    b.Property<string>("SkilLevel");
+
+                    b.Property<DateTime>("StartTime");
+
+                    b.Property<int>("StudentsCount");
 
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("EducationBackendFinal.Models.CourseUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId");
+
+                    b.Property<int>("CourseId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("CourseUsers");
                 });
 
             modelBuilder.Entity("EducationBackendFinal.Models.NoticeBoard", b =>
@@ -241,11 +292,15 @@ namespace EducationBackendFinal.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CategoryId");
+
                     b.Property<string>("Facebook");
 
                     b.Property<string>("FullName");
 
                     b.Property<string>("Image");
+
+                    b.Property<bool>("IsDeleted");
 
                     b.Property<string>("Pinterest");
 
@@ -257,7 +312,28 @@ namespace EducationBackendFinal.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Teachers");
+                });
+
+            modelBuilder.Entity("EducationBackendFinal.Models.TeacherUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId");
+
+                    b.Property<int>("TeacherId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("TeacherId");
+
+                    b.ToTable("TeacherUsers");
                 });
 
             modelBuilder.Entity("EducationBackendFinal.Models.Testimonial", b =>
@@ -288,6 +364,8 @@ namespace EducationBackendFinal.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CategoryId");
+
                     b.Property<DateTime>("Day");
 
                     b.Property<string>("Description");
@@ -305,6 +383,8 @@ namespace EducationBackendFinal.Migrations
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("UpComingEvents");
                 });
@@ -466,6 +546,18 @@ namespace EducationBackendFinal.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("EducationBackendFinal.Models.CourseUser", b =>
+                {
+                    b.HasOne("EducationBackendFinal.Models.AppUser", "AppUser")
+                        .WithMany("CourseUsers")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("EducationBackendFinal.Models.Course", "Course")
+                        .WithMany("CourseUsers")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("EducationBackendFinal.Models.SpeakerEvent", b =>
                 {
                     b.HasOne("EducationBackendFinal.Models.Speaker", "Speaker")
@@ -476,6 +568,34 @@ namespace EducationBackendFinal.Migrations
                     b.HasOne("EducationBackendFinal.Models.UpComingEvent", "UpComingEvent")
                         .WithMany("SpeakerEvents")
                         .HasForeignKey("UpComingEventId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("EducationBackendFinal.Models.Teacher", b =>
+                {
+                    b.HasOne("EducationBackendFinal.Models.Category", "Category")
+                        .WithMany("Teachers")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("EducationBackendFinal.Models.TeacherUser", b =>
+                {
+                    b.HasOne("EducationBackendFinal.Models.AppUser", "AppUser")
+                        .WithMany("TeacherUsers")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("EducationBackendFinal.Models.Teacher", "Teacher")
+                        .WithMany("TeacherUsers")
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("EducationBackendFinal.Models.UpComingEvent", b =>
+                {
+                    b.HasOne("EducationBackendFinal.Models.Category", "Category")
+                        .WithMany("UpComingEvents")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

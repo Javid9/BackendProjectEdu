@@ -21,6 +21,8 @@ namespace EducationBackendFinal.Models
         [NotMapped]
         public IFormFile Photo { get; set; }
         public ICollection<SpeakerEvent> SpeakerEvents { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
 
     }
 }

@@ -1,16 +1,16 @@
-﻿using EducationBackendFinal.Models;
+﻿using EducationBackendFinal.Mapper;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace EducationBackendFinal.ViewModels
 {
-    public class UpComingEventCreateVM
+    public class UpComingEventEditVM
     {
+        public int Id { get; set; }
         [Required]
         public DateTime Month { get; set; }
         [Required]
@@ -24,11 +24,12 @@ namespace EducationBackendFinal.ViewModels
         [Required]
         public DateTime EndTime { get; set; }
         [Required]
-        
+
         public string Description { get; set; }
-        
-        [Required]
+        public int CategoryId { get; set; }
+
         public IFormFile Photo { get; set; }
-        public List<int> SpeakerEventsId { get; set; }
+        public List<int> SpeakersId { get; set; }
+        public string Image { get; set; }
     }
 }

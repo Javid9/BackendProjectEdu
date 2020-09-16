@@ -10,5 +10,9 @@ namespace EducationBackendFinal.Models
     {
         public string Fullname { get; set; }
         public bool IsActivated { get; set; }
+        public ICollection<CourseUser> CourseUsers{ get; set; }
+        public ICollection<TeacherUser> TeacherUsers { get; set; }
+
+
     }
 }

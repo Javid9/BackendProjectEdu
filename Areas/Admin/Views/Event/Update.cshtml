@@ -1,0 +1,151 @@
+﻿@model UpComingEvent
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update Event</h4>
+                <input type="hidden" name="name" asp-for="Id" />
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label asp-for="Photo"></label>
+                        <input asp-for="Photo" class="form-control" accept="image/*">
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Month"></label>
+                        <input asp-for="Month" class="form-control" placeholder="month">
+                        <span asp-validation-for="Month" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Day"></label>
+                        <input asp-for="Day" class="form-control" placeholder="day">
+                        <span asp-validation-for="Day" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title"></label>
+                        <input asp-for="Title" class="form-control" placeholder="Postion">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Location"></label>
+                        <input asp-for="Location" class="form-control" placeholder="location">
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" placeholder="location">
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="d-block">Speaker</label>
+
+                        @for (var i = 0; i < ViewBag.Speaker.Count; i++)
+                        {
+                            if (Model.SpeakerEvents.Count > i)
+                            {
+                                <label>@ViewBag.Speaker[i].Name</label>
+                                <input type="checkbox" class="speaker-input" value="@ViewBag.Speaker[i].Id" @(Model.SpeakerEvents.ElementAt(i)) checked />
+
+                            }
+                            else
+                            {
+                                <label>@ViewBag.Speaker[i].Name</label>
+                                <input type="checkbox" class="speaker-input" value="@ViewBag.Speaker[i].Id" />
+                            }
+
+
+                        }
+                        <div class="form-group">
+
+                            <select asp-for="@Model.CategoryId"
+                                    asp-items="@ViewBag.Category">
+                            </select>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StartTime"></label>
+                        <input asp-for="StartTime" class="form-control" placeholder="startime">
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EndTime"></label>
+                        <input asp-for="EndTime" class="form-control" placeholder="endtime">
+                        <span asp-validation-for="EndTime" class="text-danger"></span>
+                    </div>
+
+                    <button class="btn btn-success mr-2 create-book">create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_Validation" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
+    <script>
+        let btnCreate = document.querySelector('.create-book');
+        let speakerInput = document.querySelectorAll('.speaker-input');
+       
+        btnCreate.addEventListener('click', function (event) {
+            event.preventDefault();
+            let speakerId = [];
+
+            for (let item of speakerInput) {
+                if (item.checked) {
+                    speakerId.push(item.value);
+                    console.log(speakerId)
+                }
+            }
+
+            let formData = new FormData();
+
+            for (let spkrId of speakerId) {
+                formData.append("SpeakersId", spkrId);
+            }
+            formData.append("Id", document.querySelector("#Id").value);
+            formData.append("Day", document.querySelector("#Day").value);
+            formData.append("CategoryId", $("#CategoryId").val())
+            formData.append("Month", $("#Month").val());
+            formData.append("Title", $("#Title").val());
+            formData.append("StartTime", $("#StartTime").val());
+            formData.append("EndTime", $("#EndTime").val());
+            formData.append("Description", $("#Description").val());
+            formData.append("Location", $("#Location").val());
+            formData.append("Photo", document.querySelector("#Photo").files[0]);
+            console.log(formData)
+
+            axios.post('/admin/event/update', formData)
+                .then(function (response) {
+                    console.log(response.data);
+                    $.notify(response.data, "success");
+                    window.location.replace("https://localhost:44375/admin/event");
+                })
+                .catch(function (error) {
+                    if (error.response) {
+                        let errorObj = error.response.data;
+                        console.log(errorObj)
+                        for (let errors in errorObj) {
+                            let error = errorObj[errors];
+                            $.notify(error, "error");
+                            console.log(error)
+                        }
+                    }
+                });
+
+
+        })
+
+    </script>
+
+}
+
+

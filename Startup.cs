@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using EducationBackendFinal.DAL;
 using EducationBackendFinal.Helpers;
+using EducationBackendFinal.Mapper;
 using EducationBackendFinal.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,7 +42,7 @@ namespace EducationBackendFinal
                 identityOptions.Lockout.AllowedForNewUsers = true;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders().AddErrorDescriber<IdentityErrosDescriptionAz>();
 
-
+            services.AddAutoMapper(typeof(MappingProfiles));
             services.AddMvc();
             services.AddDbContext<AppDbContext>(option =>
             {

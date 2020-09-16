@@ -24,7 +24,7 @@
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                    <a class="navbar-brand brand-logo" href="index.html"><img src="~/admin/images/logo.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" href="index.html"><img src="~/img/logo/footer-logo.png" alt="logo" /></a>
                     <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/admin/images/logo-mini.svg" alt="logo" /></a>
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                         <span class="mdi mdi-sort-variant"></span>
@@ -170,69 +170,52 @@
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
-                            <i class="mdi mdi-home menu-icon"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="mdi mdi-circle-outline menu-icon"></i>
-                            <span class="menu-title">Categories</span>
-                            <i class="menu-arrow"></i>
+                        <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">
+                            <span class="menu-title">Category</span>
                         </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">Category List</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Create">Create</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="Admin" asp-controller="Products" asp-action="Index">Products</a></li>
-
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="Admin" asp-controller="Slider" asp-action="">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
+                        <a class="nav-link" asp-area="Admin" asp-controller="CreateSlider" asp-action="Index">
                             <span class="menu-title">Slider</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Users" asp-action="">
-                            <i class="mdi mdi-chart-pie menu-icon"></i>
-                            <span class="menu-title">UsersTable</span>
+                        <a class="nav-link" asp-controller="Course" asp-action="Index">
+                            <span class="menu-title">Course</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Roles" asp-action="Index">
-                            <i class="mdi mdi-grid-large menu-icon"></i>
-                            <span class="menu-title">Users Roles</span>
+                        <a class="nav-link" asp-controller="Bios" asp-action="Index">
+                            <span class="menu-title">Bio</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/icons/mdi.html">
-                            <i class="mdi mdi-emoticon menu-icon"></i>
-                            <span class="menu-title">Icons</span>
+                        <a class="nav-link" asp-controller="Contacts" asp-action="Index">
+                            <span class="menu-title">Contacts</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="mdi mdi-account menu-icon"></i>
-                            <span class="menu-title">User Pages</span>
-                            <i class="menu-arrow"></i>
+                        <a class="nav-link" asp-controller="Event" asp-action="Index">
+                            <span class="menu-title">Event</span>
                         </a>
-                        <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="documentation/documentation.html">
-                            <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                            <span class="menu-title">Documentation</span>
+                        <a class="nav-link" asp-controller="Testimonial" asp-action="Index">
+                            <span class="menu-title">Testimonial</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="WhyUs" asp-action="Index">
+                            <span class="menu-title">Why Us</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Teacher" asp-action="Index">
+                            <span class="menu-title">Teacher</span>
                         </a>
                     </li>
                 </ul>

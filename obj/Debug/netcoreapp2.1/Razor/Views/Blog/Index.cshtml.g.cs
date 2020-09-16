@@ -73,7 +73,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("\r\n<!-- Banner Area Start -->\r\n");
             EndContext();
             BeginContext(216, 32, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "072f6a2ac4c245c387075c2d1d4b58a4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "437e19d0260f4754a633732e7d211ee1", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -101,7 +101,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("                <div class=\"col-md-4 col-sm-6 col-xs-12 mt-4\" style=\"margin-top:50px\">\r\n                    <div class=\"single-blog\">\r\n                        <div class=\"blog-img\">\r\n                            <a href=\"blog-details.html\">");
             EndContext();
             BeginContext(745, 45, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "931ac3e0e3fb48279dbe29cbe28c4804", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6a01e47b9ba847dd932377e35c3c23a1", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -164,7 +164,7 @@ AddHtmlAttributeValue("", 766, blog.Image, 766, 11, false);
             WriteLiteral(" </a></h2>\r\n                                ");
             EndContext();
             BeginContext(1469, 82, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ab45f4eef0747dbb4ffb11ae381df80", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "093ecd1dd5154938b1fd95a95f408b11", async() => {
                 BeginContext(1538, 9, true);
                 WriteLiteral("read more");
                 EndContext();
@@ -241,7 +241,7 @@ AddHtmlAttributeValue("", 766, blog.Image, 766, 11, false);
             WriteLiteral("                            <li class=\"page-item\">");
             EndContext();
             BeginContext(2255, 89, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e38691f8aaf44835aeb57506d3f335b8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6bd5ce99c3e4701981f76e0410d9cd7", async() => {
                 BeginContext(2339, 1, false);
 #line 55 "C:\Users\Cavid\Desktop\backendProect\EducationBackendFinal\Views\Blog\Index.cshtml"
                                                                                                                                 Write(i);
@@ -292,7 +292,7 @@ AddHtmlAttributeValue("", 766, blog.Image, 766, 11, false);
             WriteLiteral("                </ul>\r\n            </nav>\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- Blog End -->\r\n<!-- Subscribe Start -->\r\n");
             EndContext();
             BeginContext(2525, 36, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1f85277b61454d75a909312d5d91523e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "834dd068a39c4166a1a1956929918aba", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
