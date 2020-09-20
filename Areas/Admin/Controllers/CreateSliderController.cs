@@ -7,12 +7,15 @@ using EducationBackendFinal.DAL;
 using EducationBackendFinal.Extentions;
 using EducationBackendFinal.Helpers;
 using EducationBackendFinal.Models;
+using EducationBackendFinal.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EducationBackendFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class CreateSliderController : Controller
     {
 
@@ -47,45 +50,7 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        #region Multi file upload
-        //public async Task<IActionResult> Create(Slider slider)
-        //{
-        //    if (ModelState["Photos"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
-        //    {
-        //        return View();
-        //    }
-
-        //    int canUploadCount = 5 - (_db.Sliders.Count());
-        //    if (canUploadCount < slider.Photos.Length)
-        //    {
-        //        ModelState.AddModelError("Photos", $"Maxsimum yukleye bileceyiniz shekil sayi - {canUploadCount}");
-        //        return View();
-        //    }
-
-        //    foreach (IFormFile photo in slider.Photos)
-        //    {
-        //        if (!photo.IsImage())
-        //        {
-        //            ModelState.AddModelError("Photos", "Zehmet olmasa shekil formati sechin");
-        //            return View();
-        //        }
-
-        //        if (photo.MaxLength(200))
-        //        {
-        //            ModelState.AddModelError("Photos", $"{photo.FileName} - Sheklinin olchusu 200kb-dan artiqdir");
-        //            return View();
-        //        }
-        //        string fileName = await photo.SaveImg(_env.WebRootPath, "img");
-
-        //        Slider newSlider = new Slider();
-        //        newSlider.Image = fileName;
-        //        await _db.Sliders.AddAsync(newSlider);
-        //        await _db.SaveChangesAsync();
-        //    }
-        //    return RedirectToAction(nameof(Index));
-        //}
-        #endregion
-        #region One file upload
+        
         public async Task<IActionResult> Create(Slider slider)
         {
            
@@ -112,7 +77,7 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
             }
             string path = Path.Combine("img", "slider");
             string fileName = await slider.Photo.SaveImg(_env.WebRootPath, path);
-            //Slider dbslider = _db.Sliders.Find(id);
+            
             Slider newslider = new Slider();
             newslider.Description= slider.Description;          
             newslider.Title = slider.Title;
@@ -122,7 +87,7 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        #endregion
+        
 
 
         public async Task<IActionResult> Delete(int? id)
@@ -159,40 +124,43 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int? id, Slider slider)
+        public async Task<IActionResult> Update(int? id, CreateSliderVM createSliderVM)
         {
             if (id == null) return NotFound();
-            if (slider.Photo != null)
+            Slider dbSlider = await _db.Sliders.FindAsync(id);
+            if (dbSlider == null) return NotFound();
+            if (createSliderVM.Photo != null)
             {
                 if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
                 {
                     return View();
                 }
 
-                if (!slider.Photo.IsImage())
+                if (!createSliderVM.Photo.IsImage())
                 {
                     ModelState.AddModelError("Photo", "Zehmet olmasa shekil formati sechin");
                     return View();
                 }
 
-                if (slider.Photo.MaxLength(200))
+                if (createSliderVM.Photo.MaxLength(200))
                 {
                     ModelState.AddModelError("Photo", "Shekilin olchusu max 200kb ola biler");
                     return View();
                 }
 
-                Slider dbSlider = await _db.Sliders.FindAsync(id);
-                if (dbSlider == null) return NotFound();
+
                 string path = Path.Combine("img", "slider");
                 Helper.DeleteImage(_env.WebRootPath, path, dbSlider.Image);
+             
 
-                string fileName = await slider.Photo.SaveImg(_env.WebRootPath, path);
-                dbSlider.Description = slider.Description;
-                dbSlider.Title = slider.Title;
+                string fileName = await createSliderVM.Photo.SaveImg(_env.WebRootPath, path);
                 dbSlider.Image = fileName;
-                await _db.SaveChangesAsync();
 
             }
+            dbSlider.Description = createSliderVM.Description;
+            dbSlider.Title = createSliderVM.Title;
+            
+            await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
     }

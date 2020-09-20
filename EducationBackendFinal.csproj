@@ -21,10 +21,17 @@
     <Compile Remove="Migrations\20200916105303_AddCourseUserTable.Designer.cs" />
     <Compile Remove="Migrations\20200916180359_addrealtionteachercategory.cs" />
     <Compile Remove="Migrations\20200916180359_addrealtionteachercategory.Designer.cs" />
+    <Compile Remove="Migrations\20200917151510_CreateHomeBioTable.cs" />
+    <Compile Remove="Migrations\20200917151510_CreateHomeBioTable.Designer.cs" />
+    <Compile Remove="Migrations\20200919064200_addnewcolumnCourse.cs" />
+    <Compile Remove="Migrations\20200919064200_addnewcolumnCourse.Designer.cs" />
+    <Compile Remove="Migrations\20200919084743_addnewcolumnteacher.cs" />
+    <Compile Remove="Migrations\20200919084743_addnewcolumnteacher.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="MailKit" Version="2.9.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />

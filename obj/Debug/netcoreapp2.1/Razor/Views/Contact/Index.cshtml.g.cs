@@ -69,7 +69,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("\r\n<!-- Banner Area Start -->\r\n    ");
             EndContext();
             BeginContext(151, 33, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3018f6e8181d4c53a67352049004560e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d1319a6a01644f29b44669568213d373", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -109,7 +109,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("        <div class=\"contact-icon\">\r\n                            ");
             EndContext();
             BeginContext(1272, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d74b758528fa47638cd773c0126a3412", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5206437a455147ebaff96f72c3d2386f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -155,7 +155,7 @@ AddHtmlAttributeValue("", 1296, Model.ElementAt(0).Image, 1296, 25, false);
             WriteLiteral("</p>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"single-contact mb-65\">\r\n                        <div class=\"contact-icon\">\r\n                            ");
             EndContext();
             BeginContext(1750, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "841a5bfc6e5241f38972665e5cd6db6b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "fba7276d3c2a438cbae8246715986d6e", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -201,7 +201,7 @@ AddHtmlAttributeValue("", 1774, Model.ElementAt(1).Image, 1774, 25, false);
             WriteLiteral("</p>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"single-contact\">\r\n                        <div class=\"contact-icon\">\r\n                            ");
             EndContext();
             BeginContext(2222, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "15b0c351e4d24ac3a284decd05fbd55c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "574abc607bde4b9098fcc206aacaa18d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -256,7 +256,7 @@ AddHtmlAttributeValue("", 2246, Model.ElementAt(2).Image, 2246, 25, false);
                     ");
             EndContext();
             BeginContext(2962, 1139, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c1d90c6fcd48d28193d87e20c99480", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d176784e6a0b4fd29d5f46fa5058eaa9", async() => {
                 BeginContext(3051, 1043, true);
                 WriteLiteral(@"
                         <div class=""row"">
@@ -302,7 +302,7 @@ AddHtmlAttributeValue("", 2246, Model.ElementAt(2).Image, 2246, 25, false);
             WriteLiteral("\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- Contact End -->\r\n<!-- Subscribe Start -->\r\n");
             EndContext();
             BeginContext(4231, 36, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6c336db24b97421dbb03f21208518f6d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "22c82000ceb14662be111dc692ae4e6e", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

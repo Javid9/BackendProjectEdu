@@ -1,13 +1,13 @@
 ﻿@model Course
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
 }
 
 <div class="row">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Create Course</h4>
+                <h4 class="card-title">Update Course</h4>
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label asp-for="Photo"></label>
@@ -25,45 +25,109 @@
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="StartTime"></label>
-                        <input asp-for="StartTime" class="form-control" placeholder="StartTime">
-                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                        <label asp-for="AboutCourse"></label>
+                        <input asp-for="AboutCourse" class="form-control" placeholder="AboutCourse">
+                        <span asp-validation-for="AboutCourse" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="HowToApply"></label>
+                        <input asp-for="HowToApply" class="form-control" placeholder="Howtoaplay">
+                        <span asp-validation-for="HowToApply" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="ClassDuration"></label>
-                        <input asp-for="ClassDuration" class="form-control" placeholder="ClassDuration">
-                        <span asp-validation-for="ClassDuration" class="text-danger"></span>
+                        <label asp-for="Certification"></label>
+                        <input asp-for="Certification" class="form-control" placeholder="certification">
+                        <span asp-validation-for="Certification" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Duration"></label>
-                        <input asp-for="Duration" class="form-control" placeholder="Duration">
-                        <span asp-validation-for="Duration" class="text-danger"></span>
+                        <label asp-for="CourseFee"></label>
+                        <input asp-for="CourseFee" class="form-control" placeholder="coursefee">
+                        <span asp-validation-for="CourseFee" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="SkilLevel"></label>
-                        <input asp-for="SkilLevel" class="form-control" placeholder="SkillLevel">
-                        <span asp-validation-for="SkilLevel" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Language"></label>
-                        <input asp-for="Language" class="form-control" placeholder="Language">
-                        <span asp-validation-for="Language" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="StudentsCount"></label>
-                        <input asp-for="StudentsCount" class="form-control" placeholder="StudentsCount">
-                        <span asp-validation-for="StudentsCount" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Assesments"></label>
-                        <input asp-for="Assesments" class="form-control" placeholder="Assesments">
-                        <span asp-validation-for="Assesments" class="text-danger"></span>
-                    </div>
+
+                        @*<div class="form-group">
+                            @for (var i = 0; i < ViewBag.allusers.Count; i++)
+                            {
+                                
+                                    <label>@ViewBag.allusers[i].Fullname</label>
+                                    <input type="checkbox" value="@ViewBag.allusers[i].Id" name="ListUser"  />
+
+                                
+
+                            }
+                        </div>*@
 
 
 
-                    <button type="submit" class="btn btn-success mr-2 create-book">create</button>
-                </form>
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="form-group">
+                            @for (var i = 0; i < ViewBag.Categories.Count; i++)
+                            {
+                                if (Model.CourseCategories.Count > i)
+                                {
+                                    <label>@ViewBag.Categories[i].Name</label>
+                                    <input type="checkbox" value="@ViewBag.Categories[i].Id" @(Model.CourseCategories.ElementAt(i)) name="List" checked />
+
+                                }
+                                else
+                                {
+                                    <label>@ViewBag.Categories[i].Name</label>
+                                    <input type="checkbox" value="@ViewBag.Categories[i].Id" name="List" />
+                                }
+
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="StartTime"></label>
+                            <input asp-for="StartTime" class="form-control" placeholder="StartTime">
+                            <span asp-validation-for="StartTime" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ClassDuration"></label>
+                            <input asp-for="ClassDuration" class="form-control" placeholder="ClassDuration">
+                            <span asp-validation-for="ClassDuration" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Duration"></label>
+                            <input asp-for="Duration" class="form-control" placeholder="Duration">
+                            <span asp-validation-for="Duration" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SkilLevel"></label>
+                            <input asp-for="SkilLevel" class="form-control" placeholder="SkillLevel">
+                            <span asp-validation-for="SkilLevel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Language"></label>
+                            <input asp-for="Language" class="form-control" placeholder="Language">
+                            <span asp-validation-for="Language" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="StudentsCount"></label>
+                            <input asp-for="StudentsCount" class="form-control" placeholder="StudentsCount">
+                            <span asp-validation-for="StudentsCount" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Assesments"></label>
+                            <input asp-for="Assesments" class="form-control" placeholder="Assesments">
+                            <span asp-validation-for="Assesments" class="text-danger"></span>
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-success mr-2 create-book">Update</button>
+</form>
             </div>
         </div>
     </div>

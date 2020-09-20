@@ -20,8 +20,12 @@ namespace EducationBackendFinal.ViewModels
         [Required]
         public DateTime StartTime { get; set; }
         [Required]
+        public string AboutCourse { get; set; }
+        public string HowToApply { get; set; }
+        public string Certification { get; set; }
         public int Duration { get; set; }
         [Required]
+        public int CourseFee { get; set; }
         public string ClassDuration { get; set; }
         [Required]
         public string SkilLevel { get; set; }
@@ -33,6 +37,7 @@ namespace EducationBackendFinal.ViewModels
         public string Assesments { get; set; }
 
         public ICollection<CourseUser> CourseUsers { get; set; }
+        public ICollection<CourseCategory> CourseCategories { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
     }

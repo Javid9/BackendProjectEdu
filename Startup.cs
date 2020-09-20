@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using AutoMapper;
 using EducationBackendFinal.DAL;
 using EducationBackendFinal.Helpers;
+using EducationBackendFinal.Interfaces;
 using EducationBackendFinal.Mapper;
 using EducationBackendFinal.Models;
+using EducationBackendFinal.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -41,7 +43,7 @@ namespace EducationBackendFinal
                 identityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
                 identityOptions.Lockout.AllowedForNewUsers = true;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders().AddErrorDescriber<IdentityErrosDescriptionAz>();
-
+            services.AddScoped<IEmailService, EmailService>();
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddMvc();
             services.AddDbContext<AppDbContext>(option =>

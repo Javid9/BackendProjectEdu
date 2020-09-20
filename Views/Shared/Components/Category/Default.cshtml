@@ -1,0 +1,10 @@
+﻿@model IEnumerable< Category>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <li><a href="#">@item.Name </a>(3)</li>
+
+}

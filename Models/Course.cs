@@ -19,11 +19,16 @@ namespace EducationBackendFinal.Models
         public string SkilLevel { get; set; }
         public string Language { get; set; }
         public int StudentsCount { get; set; }
+        public string AboutCourse { get; set; }
+        public string HowToApply{ get; set; }
+        public string Certification { get; set; }
         public string Assesments { get; set; }
+        public int CourseFee { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
         public ICollection<CourseUser>CourseUsers { get; set; }
         public bool IsDeleted { get; set; }
+        public ICollection<CourseCategory> CourseCategories { get; set; }
 
 
 

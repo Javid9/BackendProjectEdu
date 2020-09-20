@@ -64,7 +64,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("\r\n<div class=\"row\">\r\n    ");
             EndContext();
             BeginContext(82, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c0eeabd97d9540fa87241c92e044962b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "12a51bcecb2b46fc908fa54e7cc5ea8d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -111,7 +111,7 @@ Write(Html.Raw(Model.Title));
             WriteLiteral("</p>\r\n</div>\r\n<div class=\"row mt-3\">\r\n    ");
             EndContext();
             BeginContext(313, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b06347ab153c4ffc82bfeb3443883fd8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f821d06577bd4ce5920fc3ec6d744432", async() => {
                 BeginContext(356, 7, true);
                 WriteLiteral("Go Back");
                 EndContext();

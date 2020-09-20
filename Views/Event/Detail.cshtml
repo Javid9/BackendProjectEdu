@@ -40,27 +40,23 @@
                         </ul>
                       <p>@Model.Description</p>
                       
-                        <div class="speakers-area fix">
-                            <h4>speakers</h4>
-                            <div class="single-speaker">
-                                <div class="speaker-img">
-                                    <img src="~/img/event/speaker1.jpg" alt="speaker">
-                                </div>
-                                <div class="speaker-name">
-                                    <h5>Anthony Smith</h5>
-                                    <p>CEO, Hastech </p>
-                                </div>
-                            </div>
-                            <div class="single-speaker">
-                                <div class="speaker-img">
-                                    <img src="~/img/event/speaker2.jpg" alt="speaker">
-                                </div>
-                                <div class="speaker-name">
-                                    <h5>Lucy Rose</h5>
-                                    <p>Developer, STD </p>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="speakers-area fix">
+                          <h4>speakers</h4>
+                          @foreach (var item in Model.SpeakerEvents)
+                          {
+
+                              <div class="single-speaker">
+                                  <div class="speaker-img">
+                                      <img src="~/img/event/@item.Speaker.Image" alt="speaker">
+                                  </div>
+                                  <div class="speaker-name">
+                                      <h5>@item.Speaker.Name</h5>
+                                      <p>@item.Speaker.Position </p>
+                                  </div>
+                              </div>
+
+                          }
+                      </div>
                     </div>
                     <div class="reply-area">
                         <h3>LEAVE A REPLY</h3>
@@ -104,64 +100,18 @@
                     <div class="single-blog-widget mb-50">
                         <h3>categories</h3>
                         <ul>
-                            <li><a href="#">CSS Engineering (10)</a></li>
-                            <li><a href="#">Political Science (12)</a></li>
-                            <li><a href="#">Micro Biology (08)</a></li>
-                            <li><a href="#">HTML5 &amp; CSS3 (15)</a></li>
-                            <li><a href="#">Web Design (20)</a></li>
-                            <li><a href="#">PHP (23)</a></li>
+                            @await Component.InvokeAsync("Category")
                         </ul>
                     </div>
                     <div class="single-blog-widget mb-50">
                         <div class="single-blog-banner">
-                            <a href="blog-details.html" id="blog"><img src="~/img/blog/blog-img.jpg" alt="blog"></a>
+                            <a asp-controller="Blog" asp-action="Detail" id="blog"><img src="~/img/blog/blog-img.jpg" alt="blog"></a>
                             <h2>best<br> eductaion<br> theme</h2>
                         </div>
                     </div>
                     <div class="single-blog-widget mb-50">
                         <h3>latest post</h3>
-                        <div class="single-post mb-30">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="~/img/post/post1.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
-                                <p>By Alex  /  June 20, 2017</p>
-                            </div>
-                        </div>
-                        <div class="single-post mb-30">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="~/img/post/post2.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">Advance Web Design and Develop</a></h4>
-                                <p>By Alex  /  June 20, 2017</p>
-                            </div>
-                        </div>
-                        <div class="single-post">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="~/img/post/post3.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
-                                <p>By Alex  /  June 20, 2017</p>
-                            </div>
-                        </div>
+                        @await Component.InvokeAsync("LatestPost",3)
                     </div>
                     <div class="single-blog-widget">
                         <h3>tags</h3>

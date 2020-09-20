@@ -1,0 +1,15 @@
+﻿@model IEnumerable<EducationBackendFinal.Models.AppUser>
+<a class="btn btn-sm btn-dark my-4" asp-action="Index">Back</a>
+<table class="table" style="background-color:palevioletred" width="500px">
+    @foreach (var user in Model)
+    {
+<tr class="text-center">
+    <td style="font-size:20px">@user.UserName</td>
+    <td style="font-size:20px">@user.Email</td>
+    <td>
+        <a class="btn btn-sm btn-dark" asp-action="Edit" asp-route-userid="@user.Id">Change Role</a>
+    </td>
+</tr>
+}
+</table>
+

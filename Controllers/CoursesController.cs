@@ -21,9 +21,11 @@ namespace EducationBackendFinal.Controllers
         {
             return View();
         }
-        public IActionResult Detail()
+        public IActionResult Detail(int? id)
         {
-            return View();
+            if (id == null) return NotFound();
+            Course course = _db.Courses.FirstOrDefault(c => c.Id == id);
+            return View(course);
         }
       
     }

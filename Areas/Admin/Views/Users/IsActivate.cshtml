@@ -1,0 +1,48 @@
+﻿@model AppUser
+@{
+    ViewData["Title"] = "IsActivate";
+}
+
+<div class="row">
+    <div class="col-md-12 d-flex align-items-stretch">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">@Model.Fullname</h4>
+                        <p>
+                            @Model.Email
+                        </p>
+                        <p>
+                            @Model.UserName
+                        </p>
+                        @if (Model.IsActivated)
+                        {
+                            <p class="text-danger">Deactive etmek isteyirsiniz?</p>
+                        }
+                        else
+                        {
+                            <p class="text-success">Active etmek isteyirsiniz?</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <a class="btn btn-dark" asp-action="Index">Go Back</a>
+        <form method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            @if (Model.IsActivated)
+            {
+                <input type="hidden" name="IsActivated" value="false" />
+                <button type="submit" class="btn btn-danger ml-2">Disabled</button>
+            }
+            else
+            {
+                <input type="hidden" name="IsActivated" value="true" />
+                <button type="submit" class="btn btn-success ml-2">Activated</button>
+            }
+
+        </form>
+    </div>

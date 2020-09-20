@@ -1,0 +1,14 @@
+﻿@model UserRoleVM
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="detail-box" style="width:400px; height:250px; background-color:red;">
+    <h3 style="text-align:center; padding-top: 15px; color:white">@Model.User.Fullname</h3>
+
+    @foreach (var item in Model.UserRoles)
+    {
+        <p style="text-align:center; color:black; font-size:21px">@item</p>
+    }
+
+</div>

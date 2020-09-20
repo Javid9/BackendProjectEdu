@@ -15,6 +15,8 @@ namespace EducationBackendFinal.ViewComponents
         {
             _db = db;
         }
+
+
         public async Task<IViewComponentResult> InvokeAsync(int take)
         {
             List<Blog> model = _db.Blogs.Take(take).OrderByDescending(b=>b.Id).ToList();

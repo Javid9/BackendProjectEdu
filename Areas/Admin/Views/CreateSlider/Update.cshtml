@@ -5,14 +5,14 @@
 }
 
 <div class="row">
-    
+
     <img src="~/img/slider/@Model.Image" width="400" height="200" />
 </div>
 <div class="row mt-3">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-               
+
                 <h4 class="card-title">Update Slider</h4>
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <div class="form-group">
@@ -20,10 +20,10 @@
                         <input asp-for="Photo" class="form-control" accept="image/*" placeholder="Name">
                         <span asp-validation-for="Photo" class="text-danger"></span>
                         <label asp-for="Description"></label>
-                        <input asp-for="Description" class="form-control"  placeholder="descroption">
+                        <input asp-for="Description" class="form-control" placeholder="descroption">
                         <span asp-validation-for="Description" class="text-danger"></span>
                         <label asp-for="Title"></label>
-                        <input asp-for="Title" class="form-control"  placeholder="title">
+                        <input asp-for="Title" class="form-control" placeholder="title">
                         <span asp-validation-f`or="Title" class="text-danger"></span>
                     </div>
                     <button type="submit" class="btn btn-warning mr-2">Update</button>
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-@section Scripts{
+@*@section Scripts{
     <partial name="_Validation" />
-}
+}*@
 

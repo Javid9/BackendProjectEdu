@@ -29,5 +29,11 @@ namespace EducationBackendFinal.Controllers
 
             return PartialView("_partialSearch", model);
         }
+        public IActionResult Detail(int? id)
+        {
+            if (id == null) return NotFound();
+            Teacher teacher = _db.Teachers.FirstOrDefault(p => p.Id==id);
+            return View(teacher);
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EducationBackendFinal.DAL;
+using EducationBackendFinal.Services;
 using EducationBackendFinal.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +17,7 @@ namespace EducationBackendFinal.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             HomeVm homeVm = new HomeVm
             {
@@ -28,7 +29,8 @@ namespace EducationBackendFinal.Controllers
                 Testimonial=_db.Testimonials.FirstOrDefault()
                 
             };
-            var controller = Request.Path.Value;
+          
+           
             return View(homeVm);
         }
     }

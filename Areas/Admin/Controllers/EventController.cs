@@ -7,8 +7,11 @@ using AutoMapper;
 using EducationBackendFinal.DAL;
 using EducationBackendFinal.Extentions;
 using EducationBackendFinal.Helpers;
+using EducationBackendFinal.Interfaces;
 using EducationBackendFinal.Models;
+using EducationBackendFinal.Services;
 using EducationBackendFinal.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,24 +20,27 @@ using Microsoft.EntityFrameworkCore;
 namespace EducationBackendFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class EventController : Controller
     {
 
         private readonly AppDbContext _db;
         private readonly IHostingEnvironment _env;
         private readonly IMapper _mapper;
-        public EventController(AppDbContext db, IHostingEnvironment env, IMapper mapper)
+        private readonly IEmailService _emailService;
+        public EventController(AppDbContext db, IHostingEnvironment env, IMapper mapper, IEmailService emailService)
         {
             _db = db;
             _env = env;
             _mapper = mapper;
+            _emailService = emailService;
         }
 
         public IActionResult Index()
         {
             
            
-            return View(_db.UpComingEvents.Include(c=>c.Category).Include(e=>e.SpeakerEvents).ThenInclude(c=>c.Speaker).ToList());
+            return View(_db.UpComingEvents.Include(c=>c.Category).Where(c=>c.Category.IsDeleted==false).Include(e=>e.SpeakerEvents).ThenInclude(c=>c.Speaker).ToList());
             
            
 
@@ -44,14 +50,15 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
         }
         public IActionResult Create()
         {
-            ViewBag.Speaker = _db.Speakers.ToList();
-            ViewBag.Category = new SelectList( _db.Categories.ToList(), "Id", "Name" );
+            ViewBag.Speaker = _db.Speakers.Where(s=>s.IsDeleted==false).ToList();
+            ViewBag.Category = new SelectList( _db.Categories.Where(c=>c.IsDeleted==false).ToList(), "Id", "Name" );
             return View();
         }
         [HttpPost]
-        
+
         public async Task<IActionResult> Create([FromForm] UpComingEventCreateVM upComingEventCreateVM)
         {
+
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
             if (!upComingEventCreateVM.Photo.IsImage())
@@ -65,7 +72,7 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
                 ModelState.AddModelError("Photo", "Shekilin olchusu max 200kb ola biler");
                 return BadRequest(ModelState);
             }
-            if (upComingEventCreateVM.SpeakerEventsId==null)
+            if (upComingEventCreateVM.SpeakerEventsId == null)
             {
                 ModelState.AddModelError("", "Speaker Secmelisiniz!");
                 return BadRequest(ModelState);
@@ -84,16 +91,16 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
                 CategoryId = upComingEventCreateVM.CategoryId
             };
 
-           
-           
+
+
             await _db.UpComingEvents.AddAsync(upComingEvent);
             await _db.SaveChangesAsync();
             foreach (var speakerId in upComingEventCreateVM.SpeakerEventsId)
             {
-                var speaker = _db.Speakers.Include(p=>p.SpeakerEvents).ThenInclude(p=>p.UpComingEvent).FirstOrDefault(p=>p.Id==speakerId);
+                var speaker = _db.Speakers.Include(p => p.SpeakerEvents).ThenInclude(p => p.UpComingEvent).FirstOrDefault(p => p.Id == speakerId);
                 foreach (var se in speaker.SpeakerEvents)
                 {
-                    if (upComingEvent.StartTime>se.UpComingEvent.StartTime&& upComingEvent.EndTime < se.UpComingEvent.EndTime)
+                    if (upComingEvent.StartTime > se.UpComingEvent.StartTime && upComingEvent.EndTime < se.UpComingEvent.EndTime)
                     {
                         ModelState.AddModelError("", "Busy");
                         return BadRequest(ModelState);
@@ -103,13 +110,24 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
                 }
                 SpeakerEvent speakerEvent = new SpeakerEvent
                 {
-                    SpeakerId=speakerId,
-                    UpComingEventId=upComingEvent.Id
+                    SpeakerId = speakerId,
+                    UpComingEventId = upComingEvent.Id
 
                 };
                 _db.SpeakerEvents.Add(speakerEvent);
+
                 await _db.SaveChangesAsync();
             }
+            var callbackUrl = Url.Action(
+                     "Detail",
+                     "Event",
+                     new { Id = upComingEventCreateVM.Id },
+                     protocol: HttpContext.Request.Scheme);
+            EmailService email = new EmailService();
+            List<string> e = _db.Subscriptions.Select(x => x.Email).ToList();
+            await email.SendEmailAsync(e, "Yeni event",
+                   "Yeni event: <a href=https://localhost:44375/Event/Detail/" + $"{upComingEvent.Id}" + ">link</a>");
+
 
             return Ok($"{upComingEvent.Id} li element yaradildi");
 
@@ -118,7 +136,7 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
         public IActionResult Detail(int? id)
         {
             if (id == null) return View();
-            UpComingEvent upComingEvent = _db.UpComingEvents.Include(c => c.SpeakerEvents).ThenInclude(c => c.Speaker).FirstOrDefault(p=>p.Id==id);
+            UpComingEvent upComingEvent = _db.UpComingEvents.Include(c=>c.Category).Include(c => c.SpeakerEvents).ThenInclude(c => c.Speaker).FirstOrDefault(p=>p.Id==id);
 
             return View(upComingEvent);
         }
@@ -135,8 +153,7 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
 
         [HttpPost]
        
-
-        public async Task<IActionResult> Update([FromForm]UpComingEventEditVM  upComingEventEdit)
+        public async Task<IActionResult> Update([FromForm] UpComingEventEditVM  upComingEventEdit)
         {
             
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -161,7 +178,7 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Speaker Secmelisiniz!");
                 return BadRequest(ModelState);
             }
-
+            
             var speakerEvent =  _db.SpeakerEvents.Where(x => x.UpComingEventId == upComing.Id);
 
               
@@ -171,7 +188,6 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
                 }
                 await _db.SaveChangesAsync();
             
-            
                 upComing.SpeakerEvents = upComingEventEdit.SpeakersId
                .Select(x => new SpeakerEvent { SpeakerId = x }).ToList();
 
@@ -179,7 +195,8 @@ namespace EducationBackendFinal.Areas.Admin.Controllers
             
 
             await _db.SaveChangesAsync();
-            await Task.Delay(1000);
+
+          
 
             return RedirectToAction(nameof(Index));
         }

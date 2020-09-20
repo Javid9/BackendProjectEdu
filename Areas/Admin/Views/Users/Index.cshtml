@@ -1,0 +1,125 @@
+﻿
+@model IEnumerable<AppUser>
+
+@{
+    ViewData["Title"] = "Index";
+    //int count = 0;
+}
+
+<div>
+    <a class="btn btn-success my-4" asp-action="Create">Create User</a>
+    <a class="btn btn-danger mr-4" asp-action="DeleteList">Deleted Users</a>
+</div>
+<partial name="_PartialSuccess" />
+
+<form class="my-4" method="get" asp-action="Index">
+    <input autocomplete="off" placeholder="Search" type="text" name="name" />
+    <input type="submit" value="search" />
+</form>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Fullname</th>
+            <th scope="col">IsActivated</th>
+            <th scope="col">Details</th>
+            
+            <th scope="col">Setting</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            //count++;
+        <tr>
+            @*<th scope="row">@count</th>*@
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td>@item.Fullname</td>
+            @if (item.IsActivated)
+            {
+                <td style="color:greenyellow">
+                    active
+                </td>
+            }
+            else
+            {
+                <td style="color:mediumvioletred">
+                    disabled
+                </td>
+
+            }
+            <td><a class="btn btn-warning d-block" asp-action="Details" asp-route-id="@item.Id">Details</a></td>
+            @if (User.Identity.Name == item.UserName)
+            {
+                @if (item.IsActivated)
+                {
+                    <td><input class="btn btn-danger d-block" disabled  asp-action="IsActivate" asp-route-id="@item.Id" value="Disabled" /></td>
+                }
+                else
+                {
+
+                    <td><input class="btn btn-success d-block" disabled asp-action="IsActivate" asp-route-id="@item.Id" value="Activate"></td>
+
+                }
+            }
+            else
+            {
+                @if (item.IsActivated)
+                {
+                    <td><a class="btn btn-danger d-block" asp-action="IsActivate" asp-route-id="@item.Id">Disabled</a></td>
+                }
+                else
+                {
+
+                    <td><a class="btn btn-success d-block" asp-action="IsActivate" asp-route-id="@item.Id">Activated</a></td>
+
+                }
+            }
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts{
+    <script>
+        let success = document.querySelector("#success");
+        setTimeout(function () {
+            success.remove()
+        }, 3000)
+    </script>
+}
+
+@section Css{
+    <style>
+        input[type=text] {
+            width: 250px;
+            height: 35px;
+            border-radius: 10px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        input[type=submit] {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            font-size: 12px;
+            border: 1px solid black;
+            background: white;
+            color: black;
+        }
+
+            input[type=submit]:hover {
+                color: white;
+                background: black;
+                transition: 0.5s;
+            }
+    </style>
+}
+
+

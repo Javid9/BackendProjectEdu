@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AppUser>
+
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+<div>
+    <a class="btn btn-dark my-4" asp-action="Index">Back</a>
+</div>
+<table class="table table-success">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Fullname</th>
+            <th scope="col">Details</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+        <tr>
+            <th scope="row">@count</th>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td>@item.Fullname</td>
+            <td><a class="btn btn-warning" asp-action="Details" asp-route-id="@item.Id">Details</a>
+            <a class="btn btn-success" asp-action="IsActivate" asp-route-id="@item.Id">Activate</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+

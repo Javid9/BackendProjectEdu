@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using EducationBackendFinal.DAL;
 using EducationBackendFinal.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EducationBackendFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private readonly AppDbContext _db;

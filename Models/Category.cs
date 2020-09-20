@@ -16,6 +16,7 @@ namespace EducationBackendFinal.Models
         public virtual ICollection<UpComingEvent> UpComingEvents { get; set; }
         public virtual ICollection<Teacher> Teachers { get; set; }
         public bool IsDeleted { get; set; }
+        public ICollection<CourseCategory> CourseCategories { get; set; }
 
     }
 }

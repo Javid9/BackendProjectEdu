@@ -1,0 +1,56 @@
+﻿@model WelcomeAbout
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Welcome About</h4>
+                
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Title
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Settings
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="~/img/about/@Model.Image" style="width:200px;height:150px" />
+                                </td>
+                                <td>
+                                    @Model.Title
+                                </td>
+                                <td>
+                                    @Model.Description
+                                </td>
+                                <td>
+                                    <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-warning">
+                                        <i class="mdi mdi-table-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

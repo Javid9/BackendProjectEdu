@@ -42,11 +42,11 @@ namespace EducationBackendFinal.Controllers
                 ModelState.AddModelError("", "Email or password wrong!");
                 return View(login);
             }
-            //if(loginUser.IsDelete)
-            //{
-            //    ModelState.AddModelError("", "Emaliniz block olunub");
-            //    return View(login);
-            //}
+            if (!loginUser.IsActivated)
+            {
+                ModelState.AddModelError("", "Emaliniz block olunub");
+                return View(login);
+            }
 
 
             var signInResult = await _signInManager.PasswordSignInAsync(loginUser, login.Password, login.RememberMe, true);
@@ -70,6 +70,14 @@ namespace EducationBackendFinal.Controllers
                 if (item == "Admin")
                 {
                     return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+                }
+            }
+
+            foreach (var item in role)
+            {
+                if (item == "CourseManager")
+                {
+                    return RedirectToAction("Index", "Course", new { area = "Admin" });
                 }
             }
 
@@ -109,8 +117,9 @@ namespace EducationBackendFinal.Controllers
                 }
                 return View(register);
             }
-            //await _userManager.AddToRoleAsync(newUser, "Member");
-            await _userManager.AddToRoleAsync(newUser, "Blogger");
+            newUser.IsActivated =true;
+           await _userManager.AddToRoleAsync(newUser, "Member");
+           
             await _signInManager.SignInAsync(newUser,true);
             return RedirectToAction("Index", "Home");
            

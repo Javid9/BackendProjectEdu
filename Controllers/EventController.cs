@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using EducationBackendFinal.DAL;
 using EducationBackendFinal.Models;
+using EducationBackendFinal.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EducationBackendFinal.Controllers
 {
@@ -17,14 +19,21 @@ namespace EducationBackendFinal.Controllers
         }
         public IActionResult Index()
         {
-            List<UpComingEvent> events = _db.UpComingEvents.ToList();
+            List<UpComingEvent> events = _db.UpComingEvents.Take(8).OrderByDescending(p=>p.Id).ToList();
 
             return View(events);
         }
         public IActionResult Detail(int? id)
         {
-            UpComingEvent upComingEvent = _db.UpComingEvents.Find(id);
-            return View(upComingEvent);
+
+
+
+
+            UpComingEvent UpComingEvent = _db.UpComingEvents.Include(c => c.SpeakerEvents).ThenInclude(p => p.Speaker).FirstOrDefault(p=>p.Id==id);
+               
+
+            
+            return View(UpComingEvent);
         }
     }
 }

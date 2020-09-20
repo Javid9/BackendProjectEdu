@@ -38,5 +38,18 @@ namespace EducationBackendFinal.Controllers
             
             return Ok(list);
         }
+        [HttpPost]
+        public async Task<IActionResult> Subscribe([FromForm]string email)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            bool subscription = _db.Subscriptions.Any(e => e.Email == email);
+            ViewBag.exist = subscription;
+           
+            var sub = new Subscription { Email = email };
+            await _db.Subscriptions.AddAsync(sub);
+            await _db.SaveChangesAsync();
+           
+            return Ok(sub.Id);
+        }
     }
 }

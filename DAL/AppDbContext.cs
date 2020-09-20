@@ -32,5 +32,9 @@ namespace EducationBackendFinal.DAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<CourseUser> CourseUsers { get; set; }
         public DbSet<TeacherUser> TeacherUsers { get; set; }
+        public DbSet<HomeBio> HomeBios { get; set; }
+        public DbSet<CourseCategory> CourseCategories{ get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
     }
 }

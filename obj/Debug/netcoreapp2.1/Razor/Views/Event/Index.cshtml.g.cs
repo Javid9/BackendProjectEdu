@@ -68,7 +68,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("\r\n<!-- Banner Area Start -->\r\n    ");
             EndContext();
             BeginContext(150, 33, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b4e71415c24f49a3b04f64625eabe715", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "561d5d25371440f7ba9c2dd24bb4d6f6", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -97,7 +97,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("                <div class=\"col-md-4 col-sm-6 col-xs-12\">\r\n                    <div class=\"single-event mb-60\">\r\n                        <div class=\"event-img\">\r\n                            <a href=\"event-details.html\">\r\n                                ");
             EndContext();
             BeginContext(667, 47, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "bdad6ce5bb5d463f8708aed1edebdad6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "52439a3f724a4ebeb385f517178e1c76", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -189,7 +189,7 @@ AddHtmlAttributeValue("", 689, item.Image, 689, 11, false);
             WriteLiteral("</li>\r\n                            </ul>\r\n                            <div class=\"event-content-right\">\r\n                                ");
             EndContext();
             BeginContext(1666, 101, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "36b3ef88e0364500b1301f0f651ee509", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7ebe12f4c244d1e9ee2a786b0f1186f", async() => {
                 BeginContext(1755, 8, true);
                 WriteLiteral("join now");
                 EndContext();
@@ -236,7 +236,7 @@ AddHtmlAttributeValue("", 689, item.Image, 689, 11, false);
             WriteLiteral("\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- Event End -->\r\n<!-- Subscribe Start -->\r\n");
             EndContext();
             BeginContext(1990, 36, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "fda915d17e8f49d4af05266d8c034783", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb3b9ec01c984b5c957ae1d124afbb2c", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

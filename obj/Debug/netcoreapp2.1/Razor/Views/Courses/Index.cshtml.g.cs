@@ -69,7 +69,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("\r\n<!-- Banner Area Start -->\r\n    ");
             EndContext();
             BeginContext(124, 33, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "265193e9e5cd49f3b3d7f0f77a990808", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "dda6057fcfc940a7b4ed68d432a174b8", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -99,7 +99,7 @@ using EducationBackendFinal.ViewModels;
                     ");
             EndContext();
             BeginContext(518, 208, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "136b9361aa4e4ae19d3b5ca193e0b48b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ada3f62bcc5e454eae6eebbac0e31fe1", async() => {
                 BeginContext(547, 172, true);
                 WriteLiteral("\r\n                        <input type=\"search\" placeholder=\"Search...\" name=\"search\" />\r\n                        <button type=\"submit\">search</button>\r\n                    ");
                 EndContext();
@@ -133,7 +133,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("\r\n           \r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- Course End -->\r\n<!-- Subscribe Start -->\r\n");
             EndContext();
             BeginContext(966, 36, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e6e138ec9a9542129182681a7422ec73", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b7aa7dfc032348ebab3971a98753c202", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

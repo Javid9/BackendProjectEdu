@@ -1,0 +1,32 @@
+﻿@model Speaker
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <img src="~/img/teacher/@Model.Image" width="400" height="200" />
+
+</div>
+<div class="row mt-5">
+    <div class="col-2">
+        <h6>Name</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.Name</p>
+    </div>
+
+
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>Position</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.Position</p>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <a class="btn btn-dark" asp-action="Index">Go Back</a>
+</div>
+

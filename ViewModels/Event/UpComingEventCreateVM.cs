@@ -11,6 +11,7 @@ namespace EducationBackendFinal.ViewModels
 {
     public class UpComingEventCreateVM
     {
+        public int Id { get; set; }
         [Required]
         public DateTime Month { get; set; }
         [Required]
@@ -24,7 +25,7 @@ namespace EducationBackendFinal.ViewModels
         [Required]
         public DateTime EndTime { get; set; }
         [Required]
-
+       
         public string Description { get; set; }
         public int CategoryId { get; set; }
 

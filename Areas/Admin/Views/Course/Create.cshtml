@@ -59,8 +59,55 @@
                         <input asp-for="Assesments" class="form-control" placeholder="Assesments">
                         <span asp-validation-for="Assesments" class="text-danger"></span>
                     </div>
-                   
-                    
+
+                    <div class="form-group">
+                        <label asp-for="StartTime"></label>
+                        <input asp-for="StartTime" class="form-control" placeholder="StartTime">
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="AboutCourse"></label>
+                        <input asp-for="AboutCourse" class="form-control" placeholder="AboutCourse">
+                        <span asp-validation-for="AboutCourse" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="HowToApply"></label>
+                        <input asp-for="HowToApply" class="form-control" placeholder="Howtoaplay">
+                        <span asp-validation-for="HowToApply" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Certification"></label>
+                        <input asp-for="Certification" class="form-control" placeholder="certification">
+                        <span asp-validation-for="Certification" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFee"></label>
+                        <input asp-for="CourseFee" class="form-control" placeholder="coursefee">
+                        <span asp-validation-for="CourseFee" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+
+                        <label>Usermanagers</label>
+                        
+                        
+                            @foreach (var item in ViewBag.Roles)
+                            {
+                                <input name="Userlist" type="checkbox" value="@item.Id" style="display:block"  />@item.Fullname
+                            }
+                        
+                    </div>
+                    <div class="form-group">
+                        @foreach (var item in ViewBag.Categories)
+                        {
+                            <label>@item.Name</label>
+                            <input type="checkbox" name="List" value="@item.Id" style="display:block" />
+
+                        }
+                        <span class=" text-danger">@TempData["Error"]</span>
+                    </div>
+
 
                     <button type="submit" class="btn btn-success mr-2 create-book">create</button>
                 </form>
@@ -71,10 +118,6 @@
 
 @section Scripts{
     <partial name="_Validation" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
-
 
 }
 

@@ -65,7 +65,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("\r\n<!-- Banner Area Start -->\r\n    ");
             EndContext();
             BeginContext(124, 33, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e2a87bafb1e74c7b9fc2e923412b1ab5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "33ce7c376b5c49c5a0b3b6bb58fc8908", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -94,7 +94,7 @@ using EducationBackendFinal.ViewModels;
             WriteLiteral("\r\n        </div>\r\n    </div>\r\n</div>\r\n<!-- Teacher End -->\r\n<!-- Subscribe Start -->\r\n");
             EndContext();
             BeginContext(446, 36, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "abea4dc501674bd68b7a1a93c30410e0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c7c40dc9819c4f94a73440e8d9bf1cce", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

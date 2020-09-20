@@ -41,8 +41,48 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Twitter"></label>
-                        <input asp-for="Twitter" class="form-control" placeholder="Twitter">
+                        <input asp-for="Twitter" class="form-control" placeholder="twitter">
                         <span asp-validation-for="Twitter" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AboutMe"></label>
+                        <input asp-for="AboutMe" class="form-control" placeholder="about">
+                        <span asp-validation-for="AboutMe" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Hobby"></label>
+                        <input asp-for="Hobby" class="form-control" placeholder="hobby">
+                        <span asp-validation-for="Hobby" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Faculty"></label>
+                        <input asp-for="Faculty" class="form-control" placeholder="faculty">
+                        <span asp-validation-for="Faculty" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Skype"></label>
+                        <input asp-for="Skype" class="form-control" placeholder="skype">
+                        <span asp-validation-for="Skype" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber"></label>
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="phonenumber">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Mail"></label>
+                        <input asp-for="Mail" class="form-control" placeholder="mail">
+                        <span asp-validation-for="Mail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Experience"></label>
+                        <input asp-for="Experience" class="form-control" placeholder="experience">
+                        <span asp-validation-for="Experience" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Degree"></label>
+                        <input asp-for="Degree" class="form-control" placeholder="Degree">
+                        <span asp-validation-for="Degree" class="text-danger"></span>
                     </div>
                     <div class="form-group">
 
@@ -50,7 +90,7 @@
                                 asp-items="@ViewBag.Category">
                         </select>
                     </div>
-                  
+
 
                     <button type="submit" class="btn btn-success mr-2 create-book">create</button>
                 </form>

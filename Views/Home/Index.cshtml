@@ -77,7 +77,7 @@
                 <div class="choose-content text-left">
                     <h2>@Model.WhyUs.Question</h2>
                   @Html.Raw(Model.WhyUs.Answer)
-                    <a class="default-btn" href="course-details.html">view courses</a>
+                    <a class="default-btn" asp-controller="courses" asp-action="detail">view courses</a>
                 </div>
             </div>
         </div>

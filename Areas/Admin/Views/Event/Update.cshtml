@@ -45,7 +45,7 @@
 
                         @for (var i = 0; i < ViewBag.Speaker.Count; i++)
                         {
-                            if (Model.SpeakerEvents.Count > i)
+                            if (ViewBag.Speaker[i].Contains(Model.SpeakerEvents.ElementAt(i).Speaker.Name))
                             {
                                 <label>@ViewBag.Speaker[i].Name</label>
                                 <input type="checkbox" class="speaker-input" value="@ViewBag.Speaker[i].Id" @(Model.SpeakerEvents.ElementAt(i)) checked />
@@ -79,7 +79,7 @@
                         <span asp-validation-for="EndTime" class="text-danger"></span>
                     </div>
 
-                    <button class="btn btn-success mr-2 create-book">create</button>
+                    <button class="btn btn-success mr-2 create-book">Update</button>
                 </form>
             </div>
         </div>

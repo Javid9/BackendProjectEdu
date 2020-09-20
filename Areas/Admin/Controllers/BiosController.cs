@@ -7,12 +7,14 @@ using EducationBackendFinal.DAL;
 using EducationBackendFinal.Extentions;
 using EducationBackendFinal.Helpers;
 using EducationBackendFinal.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EducationBackendFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class BiosController : Controller
     {
 

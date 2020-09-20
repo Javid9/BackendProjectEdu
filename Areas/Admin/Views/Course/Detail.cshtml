@@ -73,6 +73,49 @@
         <p> @Model.SkilLevel</p>
     </div>
 </div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>About Course</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.AboutCourse</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>How to Apply</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.HowToApply</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>Certification</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.Certification</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>Course Fee</h6>
+    </div>
+    <div class="col-4">
+        <p> @Model.CourseFee</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <h6>Category</h6>
+    </div>
+    <div class="col-4">
+        @foreach (var item in Model.CourseCategories)
+        {
+            <p> @item.Category.Name</p>
+        }
+    </div>
+</div>
 
 
 
